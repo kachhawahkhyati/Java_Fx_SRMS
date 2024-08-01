@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.srms.MainController">
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="326.0" layoutY="30.0" prefHeight="147.0" prefWidth="549.0" text="Student Data Visuals" textAlignment="CENTER" opacity="0.53">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="blue" fx:id="btn1" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onAction="#button1Action" prefHeight="43.0" prefWidth="144.0" stylesheets="@stylesheet.css" text="Select file" />
+            <ListView fx:id="listview" layoutX="183.0" layoutY="25.0" prefHeight="313.0" prefWidth="123.0" />
+            <Label fx:id="label1" layoutX="39.0" layoutY="53.0" prefHeight="19.0" prefWidth="94.0" text="Slect a csv file!" textAlignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ChoiceBox id="glass" fx:id="featureBox" layoutX="8.0" layoutY="156.0" prefHeight="25.0" prefWidth="150.0" stylesheets="@stylesheet.css" />
+            <Label layoutX="206.0" layoutY="6.0" text="List of Feature." textAlignment="CENTER" />
+            <Label layoutX="20.0" layoutY="133.0" text="Choose first variable (x)" />
+            <Label layoutX="330.0" layoutY="35.0" text="Choose the type of Chart." textAlignment="CENTER" textFill="#275b58">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Button id="but" fx:id="btnPieChart" layoutX="348.0" layoutY="118.0" mnemonicParsing="false" onAction="#showPieChart" prefHeight="31.0" prefWidth="106.0" stylesheets="@stylesheet.css" text="Pie Chart" />
+            <TextField fx:id="txt1Field" layoutX="5.0" layoutY="350.0" prefHeight="25.0" prefWidth="491.0" />
+            <Button id="but" layoutX="348.0" layoutY="69.0" mnemonicParsing="false" onAction="#showLineChart" prefHeight="31.0" prefWidth="102.0" stylesheets="@stylesheet.css" text="Line Chart" />
+            <Label layoutX="11.0" layoutY="192.0" text="Choose second variable (Y)" />
+            <ChoiceBox id="glass" fx:id="featureBox2" layoutX="8.0" layoutY="219.0" prefWidth="150.0" stylesheets="@stylesheet.css" />
+            <Button id="but" fx:id="btnBarChart" layoutX="348.0" layoutY="166.0" mnemonicParsing="false" onAction="#showBarChart" prefHeight="31.0" prefWidth="106.0" stylesheets="@stylesheet.css" text="Bar Chart" />
+            <Button id="but" fx:id="scatterChartBtnButton" layoutX="348.0" layoutY="217.0" mnemonicParsing="false" onAction="#showScatterPlot" prefHeight="31.0" prefWidth="108.0" stylesheets="@stylesheet.css" text="Scatter Chart" />
+            <Button id="but" fx:id="btnClear" layoutX="348.0" layoutY="293.0" mnemonicParsing="false" onAction="#buttonClear" prefHeight="31.0" prefWidth="109.0" stylesheets="@stylesheet.css" text="Clear Screen" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Line Chart">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <LineChart fx:id="lineChart" layoutX="-14.0" layoutY="-29.0" prefHeight="371.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Pie Chart">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <PieChart fx:id="pieChart1" layoutY="-29.0" prefHeight="371.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Bar Chart">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BarChart fx:id="barChart1" layoutX="-14.0" layoutY="-14.0" prefHeight="371.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Scatter Chart">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScatterChart fx:id="scatterChart" layoutX="-14.0" layoutY="-29.0" prefHeight="371.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <xAxis>
+                            <CategoryAxis prefHeight="52.0" prefWidth="442.0" side="BOTTOM" fx:id="xAxis" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="yAxis" side="LEFT" />
+                          </yAxis>
+                        </ScatterChart>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
